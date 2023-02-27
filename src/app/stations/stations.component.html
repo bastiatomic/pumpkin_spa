@@ -1,0 +1,26 @@
+<h2>stations</h2>
+
+<div *ngFor="let obj of stations">
+   
+    <div *ngIf="(obj.status == 'free')">
+        <p>The table with the ID: {{obj.id}} is {{obj.status}}</p>
+        <button>Book now</button>
+    </div>
+    <div *ngIf="(obj.status == 'blocked')">
+        <p>The table with the ID: {{obj.id}} is {{obj.status}} until {{toDEstring(obj.booked_until)}} by {{obj.current_user}}</p>
+        <button>(Admin) Unlock station</button>
+    </div>
+    <hr>
+
+</div>
+
+
+<!--
+    export interface station{
+    id: number,
+    status: String,
+    location: {x: number, y: number},
+    current_user: String,
+    booked_until: Date
+}
+-->
